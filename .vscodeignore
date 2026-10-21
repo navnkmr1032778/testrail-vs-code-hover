@@ -1,0 +1,7 @@
+.vscode/**
+.gitignore
+test/**
+graphify-out/**
+allure-results/**
+*.vsix
+environment.properties

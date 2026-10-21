@@ -1,0 +1,88 @@
+{
+  "name": "testrail-hover",
+  "displayName": "TestRail Hover",
+  "description": "View TestRail case details by hovering over case IDs in VS Code.",
+  "version": "0.0.2",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/navnkmr1032778/testrail-vs-code-hover.git"
+  },
+  "bugs": {
+    "url": "https://github.com/navnkmr1032778/testrail-vs-code-hover/issues"
+  },
+  "homepage": "https://github.com/navnkmr1032778/testrail-vs-code-hover#readme",
+  "publisher": "naveenkumar08",
+  "author": {
+    "name": "Naveen"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "icon": "icon.png",
+  "contributes": {
+    "commands": [
+      {
+        "command": "testrailHover.configure",
+        "title": "TestRail Hover: Save Credentials"
+      },
+      {
+        "command": "testrailHover.refreshMetadata",
+        "title": "TestRail Hover: Refresh metadata"
+      },
+      {
+        "command": "testrailHover.clearCache",
+        "title": "TestRail Hover: Clear case cache"
+      },
+      {
+        "command": "testrailHover.deleteConfiguration",
+        "title": "TestRail Hover: Delete Credentials"
+      }
+    ],
+    "configuration": {
+      "title": "TestRail Hover",
+      "properties": {
+        "testrailHover.cacheTtlMinutes": {
+          "type": "number",
+          "default": 1440,
+          "minimum": 1,
+          "description": "How long fetched TestRail case details remain in memory, in minutes. Default: 1 day."
+        },
+        "testrailHover.cacheMaxEntries": {
+          "type": "integer",
+          "default": 200,
+          "minimum": 1,
+          "maximum": 1000,
+          "description": "Maximum number of TestRail cases kept in the in-memory cache."
+        },
+        "testrailHover.persistMetadata": {
+          "type": "boolean",
+          "default": true,
+          "description": "Persist TestRail lookup metadata locally between VS Code sessions."
+        },
+        "testrailHover.requestIntervalMs": {
+          "type": "integer",
+          "default": 250,
+          "minimum": 100,
+          "maximum": 5000,
+          "description": "Minimum delay between TestRail API request starts, in milliseconds."
+        },
+        "testrailHover.debugLogging": {
+          "type": "boolean",
+          "default": false,
+          "description": "Write TestRail Hover metadata diagnostics to Extension Host logs."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
